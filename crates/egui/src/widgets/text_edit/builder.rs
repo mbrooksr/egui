@@ -357,7 +357,7 @@ impl<'t> TextEdit<'t> {
         let frame_rect = output.response.rect.expand2(margin);
         ui.allocate_space(frame_rect.size());
         if interactive {
-            output.response |= ui.interact(frame_rect, id, Sense::click());
+            // output.response |= ui.interact(frame_rect, id, Sense::click());
         }
         if output.response.clicked() && !output.response.lost_focus() {
             ui.memory_mut(|mem| mem.request_focus(output.response.id));

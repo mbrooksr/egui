@@ -477,8 +477,11 @@ impl Memory {
         self.areas = Default::default();
     }
 
-    pub fn get_window(&self, id: Id) -> Option<&area::State> {
-        self.areas.get(id)
+    pub fn get_window_size(&self, id: Id) -> Option<Vec2> {
+        self.areas.get(id).map(|a| a.size.clone())
+    }
+    pub fn get_window_pos(&self, id: Id) -> Option<Pos2> {
+        self.areas.get(id).map(|a| a.left_top_pos())
     }
 }
 

@@ -478,7 +478,7 @@ impl Memory {
     }
 
     pub fn get_window(&self, id: Id) -> Option<&area::State> {
-        let window = self.areas.get(id);
+        let window = self.areas.get(id)
     }
 }
 

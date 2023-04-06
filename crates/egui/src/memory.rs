@@ -476,6 +476,10 @@ impl Memory {
     pub fn reset_areas(&mut self) {
         self.areas = Default::default();
     }
+
+    pub fn get_window(&self, id: Id) -> Option<&area::State> {
+        let window = self.areas.get(id);
+    }
 }
 
 /// ## Popups

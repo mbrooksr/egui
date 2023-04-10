@@ -324,7 +324,7 @@ impl<'open> Window<'open> {
 
         let mut area = area.begin(ctx);
 
-        let title_content_spacing = 2.0 * ctx.style().spacing.item_spacing.y;
+        let title_content_spacing = 1.5 * ctx.style().spacing.item_spacing.y;
 
         // First interact (move etc) to avoid frame delay:
         let last_frame_outer_rect = area.state().rect();

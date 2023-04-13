@@ -113,6 +113,8 @@ impl<'l> StripLayout<'l> {
                 .painter()
                 .rect_filled(stripe_rect, 0.0, faint_bg_color);
         } else {
+            let stripe_rect = max_rect.expand2(0.5 * self.ui.spacing().item_spacing);
+
             self.ui
                 .painter()
                 .rect_filled(stripe_rect, 0.0, self.ui.visuals().faint_bg_color);

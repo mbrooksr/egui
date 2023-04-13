@@ -100,7 +100,7 @@ impl<'l> StripLayout<'l> {
     ) -> (Rect, Response) {
         let max_rect = self.cell_rect(&width, &height);
 
-        if striped {
+        if !striped {
             // Make sure we don't have a gap in the stripe background:
             let stripe_rect = max_rect.expand2(0.5 * self.ui.spacing().item_spacing);
 

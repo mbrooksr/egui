@@ -109,7 +109,7 @@ impl<'l> StripLayout<'l> {
             // g = g.checked_add(g).unwrap_or(255u8);
             // b = b.checked_add(b).unwrap_or(255u8);
             // let faint_bg_color = egui::Color32::from_rgba_premultiplied(r, g, b, a);
-            let faint_bg_color = self.ui.visuals().faint_bg_color.gamma_multiply(0.5);
+            let faint_bg_color = self.ui.visuals().faint_bg_color.gamma_multiply(0.2);
 
             self.ui
                 .painter()

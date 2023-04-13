@@ -100,7 +100,7 @@ impl<'l> StripLayout<'l> {
     ) -> (Rect, Response) {
         let max_rect = self.cell_rect(&width, &height);
 
-        if striped {
+        if !striped {
             // Make sure we don't have a gap in the stripe background:
             let stripe_rect = max_rect.expand2(0.5 * self.ui.spacing().item_spacing);
 
@@ -109,7 +109,7 @@ impl<'l> StripLayout<'l> {
             // g = g.checked_add(g).unwrap_or(255u8);
             // b = b.checked_add(b).unwrap_or(255u8);
             // let faint_bg_color = egui::Color32::from_rgba_premultiplied(r, g, b, a);
-            let faint_bg_color = self.ui.visuals().faint_bg_color.gamma_multiply(0.2);
+            let faint_bg_color = self.ui.visuals().faint_bg_color.gamma_multiply(0.25);
 
             self.ui
                 .painter()

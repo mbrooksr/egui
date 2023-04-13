@@ -104,6 +104,15 @@ impl<'l> StripLayout<'l> {
             // Make sure we don't have a gap in the stripe background:
             let stripe_rect = max_rect.expand2(0.5 * self.ui.spacing().item_spacing);
 
+            let let (r, g, b, mut a) = self.ui.visuals().faint_bg_color.to_tuple();
+            a = a.checked_add(a)
+                .unwrap_or(255u8);
+            let faint_bg_color = egui::Color32::from_rgba_premultiplied(r, g, b, a);
+
+            self.ui
+                .painter()
+                .rect_filled(stripe_rect, 0.0, faint_bg_color);
+        } else {
             self.ui
                 .painter()
                 .rect_filled(stripe_rect, 0.0, self.ui.visuals().faint_bg_color);

@@ -78,7 +78,8 @@ trait WinitApp {
 fn create_event_loop_builder(
     native_options: &mut epi::NativeOptions,
 ) -> EventLoopBuilder<UserEvent> {
-    let mut event_loop_builder = winit::event_loop::EventLoopBuilder::with_user_event();
+    let mut event_loop_builder = winit::event_loop::EventLoopBuilder::with_user_event()
+        .with_any_thread(true);
 
     if let Some(hook) = std::mem::take(&mut native_options.event_loop_builder) {
         hook(&mut event_loop_builder);

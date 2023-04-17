@@ -231,7 +231,7 @@ pub fn handle_app_output(
         screenshot_requested: _, // handled by the rendering backend,
         minimized,
         maximized,
-        mouse_passthrough,
+        mut mouse_passthrough,
     } = app_output;
 
     if let Some(decorated) = decorated {
@@ -289,8 +289,9 @@ pub fn handle_app_output(
 
     if let Some(mouse_passthrough) = mouse_passthrough {
         println!("setting passthru {}", mouse_passthrough);
-        window.set_cursor_hittest(mouse_passthrough);
+        window.set_cursor_hittest(!mouse_passthrough);
     }
+    mouse_passthrough = None;
 }
 
 // ----------------------------------------------------------------------------

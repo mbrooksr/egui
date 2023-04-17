@@ -231,6 +231,7 @@ pub fn handle_app_output(
         screenshot_requested: _, // handled by the rendering backend,
         minimized,
         maximized,
+        mouse_passthrough,
     } = app_output;
 
     if let Some(decorated) = decorated {
@@ -283,6 +284,11 @@ pub fn handle_app_output(
     if let Some(maximized) = maximized {
         window.set_maximized(maximized);
         window_state.maximized = maximized;
+    }
+
+
+    if let Some(mouse_passthrough) = mouse_passthrough {
+        window.set_cursor_hittest(mouse_passthrough);
     }
 }
 

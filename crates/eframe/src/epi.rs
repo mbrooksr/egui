@@ -715,6 +715,12 @@ impl Frame {
         self.output.screenshot_requested = false;
     }
 
+    /// Set mouse passthru
+    #[cfg(not(target_arch = "wasm32"))]
+    pub fn set_mouse_passthrough(&mut self, passthru: bool) {
+        self.output.mouse_passthrough = passthru;
+    }
+
     /// During [`App::post_rendering`], use this to retrieve the pixel data that was requested during
     /// [`App::update`] via [`Frame::request_screenshot`].
     ///
@@ -1131,5 +1137,8 @@ pub(crate) mod backend {
 
         #[cfg(not(target_arch = "wasm32"))]
         pub screenshot_requested: bool,
+
+        #[cfg(not(target_arch = "wasm32"))]
+        pub mouse_passthrough: bool,
     }
 }

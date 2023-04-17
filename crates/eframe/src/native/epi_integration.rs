@@ -287,7 +287,9 @@ pub fn handle_app_output(
     }
 
 
-    window.set_cursor_hittest(mouse_passthrough);
+    if let Some(mouse_passthrough) = mouse_passthrough {
+        window.set_cursor_hittest(mouse_passthrough);
+    }
 }
 
 // ----------------------------------------------------------------------------

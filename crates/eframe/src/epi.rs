@@ -718,7 +718,11 @@ impl Frame {
     /// Set mouse passthru
     #[cfg(not(target_arch = "wasm32"))]
     pub fn set_mouse_passthrough(&mut self, passthru: bool) {
-        self.output.mouse_passthrough = passthru;
+        if passthru {
+            self.output.mouse_passthrough = Some(passthru);
+        } else {
+            self.output.mouse_passthrough = None;
+        }
     }
 
     /// During [`App::post_rendering`], use this to retrieve the pixel data that was requested during
@@ -1139,6 +1143,6 @@ pub(crate) mod backend {
         pub screenshot_requested: bool,
 
         #[cfg(not(target_arch = "wasm32"))]
-        pub mouse_passthrough: bool,
+        pub mouse_passthrough: Option<bool>,
     }
 }

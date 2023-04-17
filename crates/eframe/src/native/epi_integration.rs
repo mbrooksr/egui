@@ -33,7 +33,8 @@ pub fn read_window_info(
     window_state: &WindowState,
 ) -> WindowInfo {
     let position = window
-        .outer_position()
+        // .outer_position()
+        .inner_position()
         .ok()
         .map(|pos| pos.to_logical::<f32>(pixels_per_point.into()))
         .map(|pos| egui::Pos2 { x: pos.x, y: pos.y });

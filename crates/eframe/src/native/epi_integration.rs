@@ -291,7 +291,6 @@ pub fn handle_app_output(
         println!("setting passthru {}", mouse_passthrough);
         window.set_cursor_hittest(!mouse_passthrough);
     }
-    mouse_passthrough = None;
 }
 
 // ----------------------------------------------------------------------------

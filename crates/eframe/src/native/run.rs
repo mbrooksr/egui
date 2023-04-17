@@ -825,7 +825,7 @@ mod glow_integration {
                 }
 
                 integration.post_present(window);
-                window.set_cursor_hittest(!self.native_options.mouse_passthrough).unwrap();
+                // window.set_cursor_hittest(!self.native_options.mouse_passthrough).unwrap();
 
                 #[cfg(feature = "__screenshot")]
                 // give it time to settle:

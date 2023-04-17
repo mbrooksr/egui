@@ -717,12 +717,8 @@ impl Frame {
 
     /// Set mouse passthru
     #[cfg(not(target_arch = "wasm32"))]
-    pub fn set_mouse_passthrough(&mut self, passthru: bool) {
-        if passthru {
-            self.output.mouse_passthrough = Some(passthru);
-        } else {
-            self.output.mouse_passthrough = None;
-        }
+    pub fn set_mouse_passthrough(&mut self, passthru: Option<bool>) {
+        self.output.mouse_passthrough = passthru;
     }
 
     /// During [`App::post_rendering`], use this to retrieve the pixel data that was requested during

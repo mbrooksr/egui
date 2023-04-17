@@ -231,7 +231,7 @@ pub fn handle_app_output(
         screenshot_requested: _, // handled by the rendering backend,
         minimized,
         maximized,
-        mouse_passthrough,
+        mut mouse_passthrough,
     } = app_output;
 
     if let Some(decorated) = decorated {

@@ -18,7 +18,7 @@ impl WindowSettings {
         Self {
             position: None,
             fullscreen: true,
-            inner_size_points:
+            inner_size_points: None,
         }
     }
 

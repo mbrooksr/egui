@@ -14,6 +14,14 @@ pub struct WindowSettings {
 }
 
 impl WindowSettings {
+    pub fn blank() -> Self {
+        Self {
+            position: None,
+            fullscreen: true,
+            inner_size_points: None,
+        }
+    }
+
     pub fn from_display(window: &winit::window::Window) -> Self {
         let inner_size_points = window.inner_size().to_logical::<f32>(window.scale_factor());
         let position = if cfg!(macos) {

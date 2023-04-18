@@ -532,6 +532,14 @@ impl<'t> TextEdit<'t> {
                         primary: galley.from_ccursor(ccursor_range.primary),
                         secondary: galley.from_ccursor(ccursor_range.secondary),
                     }));
+                if response.gained_focus() {
+                    // Select word:
+                    let center = cursor_at_pointer;
+                    let ccursor_range = select_word_at(text.as_str(), center.ccursor);
+                    state.set_cursor_range(Some(CursorRange {
+                        primary: galley.from_ccursor(ccursor_range.primary),
+                        secondary: galley.from_ccursor(ccursor_range.secondary),
+                    }));
                 } else if response.triple_clicked() {
                     // Select line:
                     let center = cursor_at_pointer;

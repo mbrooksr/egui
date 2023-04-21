@@ -561,7 +561,7 @@ impl<'a> Table<'a> {
 
         let avail_rect = ui.available_rect_before_wrap();
 
-        let mut scroll_area = ScrollArea::new([true, vscroll])
+        let mut scroll_area = ScrollArea::new([false, vscroll])
             .auto_shrink([true; 2])
             .stick_to_bottom(stick_to_bottom)
             .min_scrolled_height(min_scrolled_height)

@@ -559,7 +559,9 @@ impl<'a> Table<'a> {
             auto_shrink,
         } = scroll_options;
 
-        let avail_rect = ui.available_rect_before_wrap();
+        let mut avail_rect = ui.available_rect_before_wrap();
+        avail_rect.extend_with_x(5000.0);
+
 
         let mut scroll_area = ScrollArea::new([false, vscroll])
             .auto_shrink([true; 2])

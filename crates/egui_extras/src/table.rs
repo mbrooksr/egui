@@ -562,11 +562,11 @@ impl<'a> Table<'a> {
         let avail_rect = ui.available_rect_before_wrap();
 
         let mut scroll_area = ScrollArea::new([false, vscroll])
-            .auto_shrink([true; 2])
+            // .auto_shrink([true; 2])
             .stick_to_bottom(stick_to_bottom)
             .min_scrolled_height(min_scrolled_height)
             .max_height(max_scroll_height)
-            .auto_shrink(auto_shrink);
+            .auto_shrink([false; 2]);
 
         if let Some(scroll_offset_y) = scroll_offset_y {
             scroll_area = scroll_area.vertical_scroll_offset(scroll_offset_y);
